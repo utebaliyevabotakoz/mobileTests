@@ -51,4 +51,16 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+    task ios(type: Test) {
+        useJUnitPlatform {
+            includeTags 'ios'
+        }
+    }
+
+    task android(type: Test) {
+        useJUnitPlatform {
+            includeTags 'android'
+        }
+    }
 }

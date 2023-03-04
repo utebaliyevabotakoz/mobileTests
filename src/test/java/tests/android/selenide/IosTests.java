@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.List;
 import java.net.MalformedURLException;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -12,8 +14,13 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.ios.IOSDriver;
 //import io.appium.java_client.ios.IOSElement;
 
+
+
+@Tag("ios")
 public class IosTests extends TestBase {
 
+
+    @DisplayName("Функционал (ios)")
     @Test
 
         public static void main(String[] args) throws MalformedURLException, InterruptedException {
