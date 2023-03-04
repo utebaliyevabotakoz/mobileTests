@@ -13,10 +13,22 @@ import static org.openqa.selenium.By.id;
 public class SearchTests extends TestBase {
 
     @Test
-    void searchTest() {
+    void searchTestBrowserStack() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("BrowserStack");
+        });
+        step("Verify content found", () ->
+                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
+                        .shouldHave(sizeGreaterThan(0)));
+    }
+
+    @Test
+
+    void searchTestParis() {
+        step("Type search", () -> {
+            $(accessibilityId("Search Wikipedia")).click();
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Paris");
         });
         step("Verify content found", () ->
                 $$(id("org.wikipedia.alpha:id/page_list_item_title"))
