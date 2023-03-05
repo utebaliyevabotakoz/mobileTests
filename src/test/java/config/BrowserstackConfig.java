@@ -1,15 +1,13 @@
 package config;
 
-
 import org.aeonbits.owner.Config;
 
 @BrowserstackConfig.LoadPolicy(BrowserstackConfig.LoadType.MERGE)
-@org.aeonbits.owner.Config.Sources(
-        {"system:properties",
-                "classpath:${env}.properties",
-                "classpath:secret.properties"})
-
-
+@org.aeonbits.owner.Config.Sources({
+        "system:properties",
+        "classpath:android.properties",
+        "classpath:secret.properties"
+})
 public interface BrowserstackConfig extends Config {
 
     @Key("login")

@@ -1,17 +1,23 @@
 package helpers;
 
+import config.BrowserstackConfig;
+import org.aeonbits.owner.ConfigFactory;
+
 import static helpers.CustomApiListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
 public class Browserstack {
+
+    private final static BrowserstackConfig CONFIG = ConfigFactory.create(BrowserstackConfig.class);
+
     public static String getVideoUrl(String sessionId) {
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
                 .log().all()
                 .filter(withCustomTemplates())
-                .auth().basic("asdasdqwdffsfdwe_FJixVj", "Lstx5wXmrYFxG5o5G46S")
+                .auth().basic(CONFIG.login(), CONFIG.password())
                 .when()
                 .get(url)
                 .then()
@@ -20,4 +26,5 @@ public class Browserstack {
                 .extract()
                 .path("automation_session.video_url");
     }
+
 }

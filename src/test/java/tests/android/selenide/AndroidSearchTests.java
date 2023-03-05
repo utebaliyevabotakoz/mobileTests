@@ -14,8 +14,9 @@ import static org.openqa.selenium.By.id;
 
 @Tag("android")
 public class AndroidSearchTests extends TestBase {
-    @DisplayName("Поиск BrowserStack (android)")
+
     @Test
+    @DisplayName("Поиск BrowserStack (android)")
     void searchTestBrowserStack() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
@@ -26,11 +27,8 @@ public class AndroidSearchTests extends TestBase {
                         .shouldHave(sizeGreaterThan(0)));
     }
 
-
-
-    @DisplayName("Поиск Paris (android)")
     @Test
-
+    @DisplayName("Поиск Paris (android)")
     void searchTestParis() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
@@ -40,4 +38,5 @@ public class AndroidSearchTests extends TestBase {
                 $$(id("org.wikipedia.alpha:id/page_list_item_title"))
                         .shouldHave(sizeGreaterThan(0)));
     }
+
 }
