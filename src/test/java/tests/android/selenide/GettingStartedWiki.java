@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android")
+@Tag("mobile")
 public class GettingStartedWiki extends TestBase {
 
 
